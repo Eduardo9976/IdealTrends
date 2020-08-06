@@ -72,16 +72,55 @@ header ul {
 header li + li {
   margin-left: 10px;
 }
-header a {
+header a, header li {
   padding: 10px 0;
   cursor: pointer;
   color: #8a8a8a;
   text-transform: uppercase;
   font-weight: bold;
 }
-header a:hover {
+header a:hover, header li:hover {
   color: #000;
 }
+
+.container-submenuOne, .container-submenuTwo {
+  position: relative;
+  text-align: center;
+}
+header .submenuOne, .submenuTwo {
+  background: #020183;
+  display: none;
+  flex-direction: column;
+  text-align: center;
+
+}
+.submenuOne, .submenuTwo {
+  position: absolute;
+  z-index: 100;
+}
+.submenuTwo {
+  left: 100px;
+  top: 0px;
+}
+
+/* refatorar */
+.submenuOne li , .submenuTwo li {
+  display: flex;
+  justify-content: center;
+}
+
+.submenuOne a, .submenuOne li, .submenuTwo a {
+  padding: 5px 5px;
+  color: #fff;
+}
+.container-submenuOne:hover .submenuOne {
+  display: flex;
+}
+li.container-submenuTwo:hover .submenuTwo {
+  display: flex;
+}
+
+
 
 /* slider */
 .slider {
@@ -121,7 +160,7 @@ header a:hover {
 .boxes h1 {
   margin: 20px 0;
 }
-.container-boxes-imgs, .boxes-descricoes {
+.container-boxes-imgs {
   display: flex;
   justify-content: space-between;
 }
@@ -177,3 +216,39 @@ footer {
   font-weight: bold;
   margin-bottom: 20px;
 }
+
+@media (max-width: 1252px) {
+  main {
+    margin: 0 10px 0 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  aside  {
+    display: flex;
+  }
+  header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .slider {
+    display: flex;
+  }
+  .slider img {
+    min-height: 200px;
+  }
+  .info {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .container-boxes-imgs {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  footer {
+    display: flex;
+    justify-content: center;
+  }
+  .footer-container ul {
+    justify-content: center;
+  }
+} 
