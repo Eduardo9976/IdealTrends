@@ -3,24 +3,19 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 ul {
   list-style: none;
 }
-
 a {
   text-decoration: none;
 }
-
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-
 img {
   max-width: 100%;
   display: block;
 }
-
 /* Gerais */
 main {
   margin: 0 auto;
@@ -49,14 +44,12 @@ a {
   font-size: 1, 125em;
   color: #8a8a8a;
 }
-
 h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5em;
   text-transform: uppercase;
   color: #8a8a8a;
 }
-
 /* Header */
 header {
   grid-column: 2;
@@ -92,7 +85,6 @@ header .submenuOne, .submenuTwo {
   display: none;
   flex-direction: column;
   text-align: center;
-
 }
 .submenuOne, .submenuTwo {
   position: absolute;
@@ -102,27 +94,20 @@ header .submenuOne, .submenuTwo {
   left: 100px;
   top: 0px;
 }
-
-/* refatorar */
+/* subMenu */
 .submenuOne li , .submenuTwo li {
   display: flex;
   justify-content: center;
 }
-
 .submenuOne a, .submenuOne li, .submenuTwo a {
   padding: 5px 5px;
   color: #fff;
 }
-.container-submenuOne:hover .submenuOne {
+.container-submenuOne:hover .submenuOne, .container-submenuOne.active .submenuOne,
+li.container-submenuTwo:hover .submenuTwo, li.container-submenuTwo.active .submenuTwo {
   display: flex;
 }
-li.container-submenuTwo:hover .submenuTwo {
-  display: flex;
-}
-
-
-
-/* slider */
+/* slide */
 .slider {
   grid-column: 1 / -1;
   display: grid;
@@ -136,8 +121,7 @@ li.container-submenuTwo:hover .submenuTwo {
 }
 .slider-controls {
   grid-column: 2;
-  margin: 5px auto;
-  
+  margin: 5px auto; 
 }
 .slider-controls span {
   display: inline-block;
@@ -152,14 +136,12 @@ li.container-submenuTwo:hover .submenuTwo {
   background: #020183;
   transform: scale(1.2);
 }
-
 .slider img {
   display: none;
 }
 .slider img.active {
   display: block;
 }
-
 /* informações */
 .info {
   margin-top: 10px;
@@ -177,7 +159,6 @@ li.container-submenuTwo:hover .submenuTwo {
   color: #8a8a8a;
   margin-left: 13px;
 }
-
 /* boxes */
 .boxes {
   margin-top: 10px;
@@ -201,7 +182,6 @@ li.container-submenuTwo:hover .submenuTwo {
   margin: 10px 0;
   font-size: 1em;
 }
-
 /* footer */
 footer {
   margin-top: 10px;
@@ -242,7 +222,7 @@ footer {
   font-weight: bold;
   margin-bottom: 20px;
 }
-
+/* responsivo */
 @media (max-width: 1252px) {
   main {
     margin: 0 10px 0 5px;
@@ -251,6 +231,9 @@ footer {
   }
   aside  {
     display: flex;
+  }
+  aside span {
+    margin-right: 3px;
   }
   header {
     flex-wrap: wrap;
@@ -267,10 +250,14 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
   }
+  .info li {
+    margin-left: 18px;
+  }
   .container-boxes-imgs {
     flex-wrap: wrap;
     justify-content: center;
   }
+  
   footer {
     display: flex;
     justify-content: center;
