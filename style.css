@@ -128,10 +128,36 @@ li.container-submenuTwo:hover .submenuTwo {
   display: grid;
   grid-template-columns: 150px 1fr 150px;
   background: #d1d1d1;
+  position: relative;
 }
 .slider .container {
   grid-column: 2;
   margin: 0 auto;
+}
+.slider-controls {
+  grid-column: 2;
+  margin: 5px auto;
+  
+}
+.slider-controls span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #8a8a8a;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all .3s ease ;
+}
+.slider-controls span:hover, .slider-controls span.ativo {
+  background: #020183;
+  transform: scale(1.2);
+}
+
+.slider img {
+  display: none;
+}
+.slider img.active {
+  display: block;
 }
 
 /* informações */
@@ -232,6 +258,7 @@ footer {
   }
   .slider {
     display: flex;
+    flex-direction: column;
   }
   .slider img {
     min-height: 200px;
