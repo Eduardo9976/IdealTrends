@@ -47,9 +47,11 @@ export default class Slide {
   }
 
   init () {
-    this.eachImage[0].classList.add('active')
-    this.eachControl[0].classList.add('ativo')
-    this.randomImage()
-    this.addEvents()
+    if (this.imgs && this.controls) {
+      this.eachImage[0].classList.add('active')
+      this.eachControl[0].classList.add('ativo')
+      this.randomImage()
+      this.addEvents()
+    }
   }
 }
