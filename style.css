@@ -150,6 +150,7 @@ li.container-submenuTwo:hover .submenuTwo, li.container-submenuTwo.active .subme
   }
   to {
     opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 /* informações */
