@@ -1,58 +1,55 @@
 export default class Slide {
   constructor (imgs, controls) {
-    this.imgs = Array.from(document.querySelector(imgs).children);
-    this.controls = document.querySelectorAll(controls);
-    this.control = Array.from(this.controls[0].children);
-    this.funcInterval = '';
+    this.imgs = document.querySelector(imgs)
+    this.eachImage = [...this.imgs.children]
+    this.controls = document.querySelector(controls)
+    this.eachControl = [...this.controls.children]
+    this.random;
+
+    this.handleClick = this.handleClick.bind(this)
+  }
+  addEvents() {
+    this.eachControl.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        clearInterval(this.random)
+        this.handleClick(index)
+      })
+    })
   }
 
-  removeActiveImgs () {
-    this.imgs.forEach((item) => {
-        item.classList.remove('active');
+  handleClick(index) {
+    this.removeClass()
+    this.eachImage[index].classList.add('active')
+    this.eachControl[index].classList.add('ativo')
+  }
+
+  removeClass() {
+    this.eachImage.forEach((element) => {
+      element.classList.remove('active')
+    })
+    this.eachControl.forEach((item) => {
+      item.classList.remove('ativo')
     })
   }
-  removeAtivocontrols () {
-    this.control.forEach((element) => {
-        element.classList.remove('ativo');
-    })
-  }
-  addEvent () {
-    this.control.forEach((element, index) => {
-        element.addEventListener('click', () => {
-            clearInterval(this.funcInterval);
-            this.removeActiveImgs();
-            this.imgs[index].classList.add('active');
-            this.handleStyleControl(index);
-        })
-    })        
-  }
-  handleStyleControl (index) {
-    this.removeAtivocontrols();
-    this.control[index].classList.add('ativo');
-  }
-  randomImg() {
-    let loops = [];
-    this.imgs.forEach((item, index) => {
-        loops.push(index);          
-    })
+
+  randomImage() {
     let index = 0
-    this.funcInterval = setInterval(()=> {
-        index += 1;
-        if (index > (loops.length - 1)) {
-            index = 0;
-    }
-    this.removeActiveImgs();
-    this.removeAtivocontrols();
-    this.imgs[index].classList.add('active');
-    this.controls[0].children[index].classList.add('ativo');
+    this.random = setInterval(() => {
+      index += 1
+      if ( index > (this.eachImage.length -1)) {
+        index = 0
+      }
+
+      this.removeClass()
+      this.eachImage[index].classList.add('active')
+      this.eachControl[index].classList.add('ativo')
     }, 3000)
   }
+
   init () {
-    if (this.imgs && this.controls) {
-        this.addEvent();
-        this.imgs[0].classList.add('active');
-        this.controls[0].children[0].classList.add('ativo');
-        this.randomImg();
-    }
+    this.eachImage[0].classList.add('active')
+    this.eachControl[0].classList.add('ativo')
+    this.randomImage()
+    this.addEvents()
   }
 }

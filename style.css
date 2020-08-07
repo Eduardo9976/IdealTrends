@@ -141,6 +141,16 @@ li.container-submenuTwo:hover .submenuTwo, li.container-submenuTwo.active .subme
 }
 .slider img.active {
   display: block;
+  animation: sliderAnimation .5s forwards;
+}
+@keyframes sliderAnimation {
+  from {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+  }
+  to {
+    opacity: 1;
+  }
 }
 /* informações */
 .info {
